@@ -1,5 +1,6 @@
 package polymathpack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Record {
@@ -12,7 +13,7 @@ public class Record {
     private int id;
     private String firstName;
     private String lastName;
-    private List<String> phones;
+    private List<String> phones = new ArrayList<>();
 
     public List<String> getPhones() {
         return phones;
