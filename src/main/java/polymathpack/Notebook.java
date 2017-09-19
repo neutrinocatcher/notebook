@@ -1,6 +1,7 @@
 package polymathpack;
 
 import asg.cliche.Command;
+import asg.cliche.Param;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,14 +12,31 @@ public class Notebook {
     private List<Record> records = new ArrayList<>();
 
     @Command
-    public void create(String firstName, String lastName, String email, String address, String ... phones) {
-        Record record = new Record();
+    public void createPerson(String firstName, String lastName, String email, String address, String ... phones) {
+        Person record = new Person();
         record.setFirstName(firstName);
         record.setLastName(lastName);
         record.setPhones(Arrays.asList(phones));
         record.setEmail(email);
         record.setAddress(address);
         records.add(record);
+    }
+
+    @Command
+    public void createNote(
+            @Param(name="text", description="Note record text property")
+            String text) {
+        Note note = new Note();
+        note.setText(text);
+        records.add(note);
+    }
+
+    @Command
+    public void createReminder(String text, String time) {
+        Reminder reminder = new Reminder();
+        reminder.setText(text);
+        reminder.setTime(time);
+        records.add(reminder);
     }
 
     @Command
