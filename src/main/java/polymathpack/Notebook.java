@@ -3,6 +3,7 @@ package polymathpack;
 import asg.cliche.Command;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Notebook {
@@ -10,16 +11,28 @@ public class Notebook {
     private List<Record> records = new ArrayList<>();
 
     @Command
-    public void Create(String firstName, String lastName, String phone) {
+    public void Create(String firstName, String lastName, String email, String address, String ... phones) {
         Record record = new Record();
         record.setFirstName(firstName);
         record.setLastName(lastName);
-        record.setPhone(phone);
+        record.setPhones(Arrays.asList(phones));
+        record.setEmail(email);
+        record.setAddress(address);
         records.add(record);
     }
 
     @Command
     public List<Record> List() {
         return records;
+    }
+
+    @Command
+    public void Remove(int id) {
+        for (int i = 0; i < records.size(); i++) {
+            if (records.get(i).getId() == id) {
+                records.remove(i);
+                break;
+            }
+        }
     }
 }

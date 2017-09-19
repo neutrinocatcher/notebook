@@ -1,5 +1,7 @@
 package polymathpack;
 
+import java.util.List;
+
 public class Record {
     public Record() {
         counter++;
@@ -10,7 +12,34 @@ public class Record {
     private int id;
     private String firstName;
     private String lastName;
-    private String phone;
+    private List<String> phones;
+
+    public List<String> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<String> phones) {
+        this.phones = phones;
+    }
+
+    private String email;
+    private String address;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public int getId() {
         return id;
@@ -32,21 +61,15 @@ public class Record {
         this.lastName = lastName;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     @Override
     public String toString() {
         return "Record{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phones=" + phones +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
