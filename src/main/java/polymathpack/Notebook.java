@@ -11,7 +11,7 @@ public class Notebook {
     private List<Record> records = new ArrayList<>();
 
     @Command
-    public void Create(String firstName, String lastName, String email, String address, String ... phones) {
+    public void create(String firstName, String lastName, String email, String address, String ... phones) {
         Record record = new Record();
         record.setFirstName(firstName);
         record.setLastName(lastName);
@@ -22,12 +22,12 @@ public class Notebook {
     }
 
     @Command
-    public List<Record> List() {
+    public List<Record> list() {
         return records;
     }
 
     @Command
-    public void Remove(int id) {
+    public void remove(int id) {
         for (int i = 0; i < records.size(); i++) {
             if (records.get(i).getId() == id) {
                 records.remove(i);
